@@ -6,6 +6,10 @@ var randomJeapordyAPI=`http://jservice.io/api/random`
 
 // setItem local storage will go here 
 
+// By Frank on 9th May 2023:
+// set local storage logic for input user enters in input element
+// need to use  localStorage.setItem() and localStorage.getItem()
+
 // write if & for loop statement for category 1 here 
 
 // write if & for loop statement for category 2 here 
