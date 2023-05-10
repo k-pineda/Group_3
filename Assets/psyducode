@@ -1,0 +1,10 @@
+# //First Page 
+# // Step 1: Create functionality for buttons, user input when they enter their name & transition to questions saved in a variable after fetching API 
+# // 1.1 - Create user input element in HTML for Enter Name
+# // 1.2 - On js script - Click on category_1 and open console. Pick 5 array index positions & save the data to a variable (data.results[0].question & data.results[0].correct_answer & data.results[0].incorrect_answers)
+# // 1.3 - On js script - For Jeapordy questions - Save the data to a variable (data[0].question & data[0].answer)
+# // 1.4 - On js script - Push changes from branch to repo for review/approval
+
+# // 1.5 - On js script - set user input keyed in to local storage for future retrieval 
+# // 1.6 - On js script - create if (& for loop) statement for when user clicks on category 1 the science/nature questions will appear (*this will require the variable containing questions to be down)
+# // 1.7 - On js script - create if (& for loop) statement for when user clicks on category 2 the random questions will appear 
