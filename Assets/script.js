@@ -3,7 +3,8 @@ $(document).ready(function () {
 
     var scienceTriviaAPI = `https://opentdb.com/api.php?amount=10&category=17&difficulty=easy`
 
-    var randomJeapordyAPI = `http://jservice.io/api/random`
+
+var randomJeapordyAPI=`http://jservice.io/api/random?count=5`
 
     // setItem local storage will go here 
     // By Frank on 9th May 2023:
