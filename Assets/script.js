@@ -11,7 +11,7 @@ var questionIndex = 0;
 
 // timer
 var timerEl = $(".time");
-var timeLeft = 60;
+var timeLeft = 30;
 
 
 // timer starts counting down from 75 seconds
