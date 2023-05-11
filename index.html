@@ -13,27 +13,89 @@
 </head>
 
 <body>
-    <div id=container>        
-       <main class="first-page">           
-        <h1>Science, Nature and Random Trivia</h1>
-        <h4>Take the quiz to see if you are smarter than average!
-            <br />
-            <br />
-            Enter your name and pick a category to begin!
-        </h4>
-        <form>
-            <div class="mb-3">
-              <label for="nameInput" class="form-label">Enter Name</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <!-- header -->   
+    <nav class="light-blue "></nav>
+
+    <!-- first page - home -->
+    <main class="row"> 
+        <!--  2-column   -->
+        <section class="container first-page show">
+            <h1 class="header center orange-text">Science, Nature and Random Trivia</h1>
+            <!-- display image  -->
+            <div class="col s12 m6" >
+                <div class="card">
+                    <div class="card-image">
+                      <img src="./Assets/image/trivia.jpg">         
+                    </div>
+                  </div>
+              </div>
+            <!-- select a category -->
+            <div class="col s12 m6">
+                <h4 class="left">Take the quiz to see if you are smarter than average!</h4>
+                <p class="light">Enter your name and pick a category to begin!</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label">Enter Name</label>
+                        <input placeholder="Your name here" id="name" type="text"/>
+                      </div>
+                </form>
+                <p>Select a category</p>
+                <button id="category_1" class="btn-large waves-effect waves-light orange">CATEGORY 1</button>
+                <button id="category_2" class="btn-large waves-effect waves-light orange">CATEGORY 2</button>
             </div>
-          </form>
+        </section>
+    </main>
+      
+      <!-- second page - questions -->
+      <section class="container second-page show">
+            <div class="row welcome-time">
+                <div class="col s6 welcome">Welcome back, name! </div>
+                <div class="col s6 time">Time: 60</div>
+            </div>
+            <h1 class="header center orange-text question-title">Question Title</h1>
+            <h5 class="question-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at dignissim urna, vitae volutpat erat. Integer pulvinar auctor tortor congue lacinia. </h5>
+            <div class="row center">
+                <ul class="collection answer-choices">
+                </ul>
+            </div>
+            <div class="row center">
+                <h5 class="header center blue-text correct show">Correct!</h5>
+                <h5 class="header center red-text wrong show">Wrong!</h5>
+            </div>
+            <div class="row center">
+                <button id="download-button" class="btn-large waves-effect waves-light orange">Next Question >></button>
+            </div>
+      </section>
 
-          <button id="category_1" class="button is-large">Category 1</button>
-          <button id="category_2" class="button is-large">Category 2</button>
-        </main>
+      <!-- third page - display score -->
+      <section class="container third-page show">
+        <div class="row welcome-time">
+            <div class="col s6 welcome">Welcome back, name! </div>
+            <div class="col s6 time">Time: 60</div>
+        </div>
+        <h1 class="header center orange-text question-title">Good Job! </h1>
+        <h5 class="header center ">Your score is: </h5>
+        <div class="row center">
+            <button id="download-button" class="btn-large waves-effect waves-light orange">Play Again</button>
+        </div>
+      </section>
 
-    </div>
+        <div class="questions-container hide">
+            <div class="question-title">question title here</div>
+            <ul class="answer-choices">
+            </ul>
+            <!-- <h2 class="correct hide">Correct!</h2>
+            <h2 class="wrong hide">Wrong!</h2> -->
+        </div>
 
+        <div class="footer-copyright">
+          <div class="container">
+          Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+          | <a href="https://www.freepik.com/free-vector/did-you-know-lettering_10980662.htm#query=trivia&position=14&from_view=search&track=sph">Image by pikisuperstar</a> on Freepik</a>
+          </div>
+        </div>
+      </footer>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
