@@ -10,8 +10,8 @@ var answerChoices=$(".answer-choices")
 var questionIndex = 0;
 
 // timer
-var timerEl = $("#timer");
-var timeLeft = 30;
+var timerEl = $(".time");
+var timeLeft = 60;
 
 
 // timer starts counting down from 75 seconds
@@ -24,8 +24,8 @@ var timeInterval = setInterval(function ()
      {
        timerEl.text("");
        clearInterval(timeInterval);
-       $(".all-done-container").removeAttr("class", "hide"); //timer hits 0 remove hide from alldone container
-       $(".questions-container").attr("class", "hide")
+       $(".third-page").removeAttr("class", "hide"); //timer hits 0 remove hide from alldone container
+       $(".second-page").attr("class", "hide")
      }
 },1000)};
 
@@ -49,9 +49,9 @@ function getTriviaAPI(requestURL) {
 
                 // create list item
                 var firstOptionEl=$("<li>", {id:"option_1"},{class:"collection-item black-text"});
-                var secondOptionEl=$("<li>", {id:"option_2"});
-                var thirdOptionEl=$("<li>", {id:"option_3"});
-                var fourthOptionEl=$("<li>", {id:"option_4"});
+                var secondOptionEl=$("<li>", {id:"option_2"},{class:"collection-item black-text"});
+                var thirdOptionEl=$("<li>", {id:"option_3"},{class:"collection-item black-text"});
+                var fourthOptionEl=$("<li>", {id:"option_4"},{class:"collection-item black-text"});
 
                 // insert text to li 
                 firstOptionEl.text(answer);
@@ -73,13 +73,14 @@ function getTriviaAPI(requestURL) {
                 //     answerChoice.append(choiceBtn)
                 //   });
         })
+        checkAnswer();
 }
 
 function checkAnswer() {
     if (this.value === "true") {
       $(".correct").removeAttr("class", "hide")
       setTimeout(function () {
-        c$(".correct").attr("class", "hide")
+        $(".correct").attr("class", "hide")
       }, 1000)
     }
     else {
@@ -99,8 +100,8 @@ function checkAnswer() {
   //remove hide from alldone container when user answers final question 
 function allDoneDisplayed() {
     if (questionIndex === 4) {
-      $(".all-done-container").removeAttr("class", "hide")
-      $(".questions-container").attr("class", "hide")
+      $(".third-page").removeAttr("class", "hide")
+      $(".second-page").attr("class", "hide")
       // grab timeleft and add that number to final score
       $(".final-score").text(timeLeft); 
     }
