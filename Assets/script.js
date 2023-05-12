@@ -103,7 +103,7 @@ function checkAnswer() {
     $("#correct").removeClass("hide")
     setTimeout(function () {
       $("#correct").addClass("hide")
-    }, 1000)
+    }, 2000)
   }
   else {
     //subtract 10 seconds from timer
@@ -111,7 +111,7 @@ function checkAnswer() {
     $("#wrong").removeClass("hide")
     setTimeout(function () {
       $("#wrong").addClass("hide")
-    }, 1000)
+    }, 2000)
   }
   questionIndex++
   if (questionIndex<trivias.length){
