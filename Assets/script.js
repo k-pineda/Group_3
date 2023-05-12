@@ -1,6 +1,11 @@
 // api variables
-var scienceTriviaAPI = `https://opentdb.com/api.php?amount=10&category=17&difficulty=easy`
+var scienceTriviaAPI = `https://opentdb.com/api.php?amount=5&category=17&difficulty=easy&type=multiple`
 var randomJeapordyAPI=`http://jservice.io/api/random?count=5`
+
+var answer;
+var answer2;
+var answer3;
+var correctAnswer;
 
 // element variables
 var questionCategory1=$(".question-title")
@@ -8,7 +13,7 @@ var answerChoices=$(".answer-choices")
 
 // current question index
 var questionIndex = 0;
-
+var trivias = [];
 // timer
 var timerEl = $(".time");
 var timeLeft = 30;
@@ -24,34 +29,28 @@ var timeInterval = setInterval(function ()
      {
        timerEl.text("");
        clearInterval(timeInterval);
-       $(".third-page").removeAttr("class", "hide"); //timer hits 0 remove hide from alldone container
+       $(".third-page").removeAttr("class", "hide"); //timer hits 0 remove hide from display score container
        $(".second-page").attr("class", "hide")
      }
 },1000)};
 
 // write if & for loop statement for category 1 here (answers will be in multiple choice)
-
-function getTriviaAPI(requestURL) {
-    fetch(requestURL)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) 
-        {
-                //grabbing options neeed to add these to li elements before appending li element to UL
-                var answer =  data.results[questionIndex].incorrect_answers[0]
-                var answer2 =  data.results[questionIndex].incorrect_answers[1]
-                var answer3 =  data.results[questionIndex].incorrect_answers[2]
-                var correctAnswer = data.results[questionIndex].correct_answer
+function displayTrivia (){ 
+    var trivia=trivias[questionIndex]
+   answerChoices.empty()
+                answer =  trivia.incorrect_answers[0]
+                answer2 =  trivia.incorrect_answers[1]
+                answer3 =  trivia.incorrect_answers[2]
+                correctAnswer = trivia.correct_answer
 
                 // inserting question into element
-                questionCategory1.text(data.results[questionIndex].question)
+                questionCategory1.text(trivia.question)
 
                 // create list item
-                var firstOptionEl=$("<li>", {id:"option_1"},{class:"collection-item black-text"});
-                var secondOptionEl=$("<li>", {id:"option_2"},{class:"collection-item black-text"});
-                var thirdOptionEl=$("<li>", {id:"option_3"},{class:"collection-item black-text"});
-                var fourthOptionEl=$("<li>", {id:"option_4"},{class:"collection-item black-text"});
+                var firstOptionEl=$("<button>", {id:"option_1"});
+                var secondOptionEl=$("<button>", {id:"option_2"});
+                var thirdOptionEl=$("<button>", {id:"option_3"});
+                var fourthOptionEl=$("<button>", {id:"option_4"});
 
                 // insert text to li 
                 firstOptionEl.text(answer);
@@ -64,20 +63,30 @@ function getTriviaAPI(requestURL) {
                 answerChoices.append(secondOptionEl);
                 answerChoices.append(thirdOptionEl);
                 answerChoices.append(fourthOptionEl); 
-
-                // displayCurrentQuestion.choices.forEach(userChoice => {
-                //     var choiceBtn = document.createElement("button")
-                //     choiceBtn.textContent = userChoice.answer
-                //     choiceBtn.setAttribute("value", userChoice.correct)
-                //     choiceBtn.onclick = checkAnswer
-                //     answerChoice.append(choiceBtn)
-                //   });
-        })
-        checkAnswer();
+                
+                firstOptionEl.on("click",checkAnswer)
+                secondOptionEl.on("click",checkAnswer)
+                thirdOptionEl.on("click",checkAnswer)
+                fourthOptionEl.on("click",checkAnswer)
 }
 
+
+function getTriviaAPI(requestURL) {
+    fetch(requestURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) 
+        { 
+            questionIndex=0;
+            trivias=data.results;
+            displayTrivia();
+        })
+}
+
+
 function checkAnswer() {
-    if (this.value === "true") {
+    if ($(this).text() === correctAnswer) {
       $(".correct").removeAttr("class", "hide")
       setTimeout(function () {
         $(".correct").attr("class", "hide")
@@ -85,23 +94,25 @@ function checkAnswer() {
     }
     else {
       //subtract 10 seconds from timer
-      timeLeft -= 10;
+      timeLeft -= 3;
       $(".wrong").removeAttr("class", "hide")
       setTimeout(function () {
         (".wrong").attr("class", "hide")
       }, 1000)
     }
-    $(".answer-choices").text("");
-    questionIndex++
+   questionIndex++
+   if (questionIndex<trivias.length){
+    displayTrivia()
+   } else {
     allDoneDisplayed()
-    // questionsDisplayed()
+   }
   }
 
   //remove hide from alldone container when user answers final question 
 function allDoneDisplayed() {
-    if (questionIndex === 4) {
+    if (questionIndex > 5) {
+    $(".second-page").attr("class", "hide")
       $(".third-page").removeAttr("class", "hide")
-      $(".second-page").attr("class", "hide")
       // grab timeleft and add that number to final score
       $(".final-score").text(timeLeft); 
     }
