@@ -112,7 +112,7 @@ function allDoneDisplayed() {
 $("#category_1").on("click", function (event) {
     event.preventDefault()
     $(".first-page").attr("class", "hide")
-    $(".questions-container").removeAttr("class", "hide")
+    $(".second-page").removeAttr("class", "hide")
     countdown()
     getTriviaAPI(scienceTriviaAPI);
 })
