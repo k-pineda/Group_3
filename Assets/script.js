@@ -14,14 +14,12 @@ var answerChoices=$(".answer-choices")
 // current question index
 var questionIndex = 0;
 var trivias = [];
+var category2Trivias = []
 // timer
 var timerEl = $(".time");
-var timeLeft = 30;
+var timeLeft = 90;
 
 var timeInterval;
-
-
-
 
 // timer starts counting down from 75 seconds
 function countdown() {
@@ -29,16 +27,16 @@ timeInterval = setInterval(function ()
 {
   timeLeft--;
   timerEl.text("Time: " + timeLeft);
-  if (timeLeft <= 0 || questionIndex === 4) 
+  if (timeLeft <= 0 || questionIndex === 5) 
      {
        timerEl.text("");
        clearInterval(timeInterval);
        $(".third-page").removeAttr("class", "hide"); //timer hits 0 remove hide from display score container
-       $(".second-page").attr("class", "hide")
+       $(".questions").attr("class", "hide")
      }
 },1000)};
 
-// write if & for loop statement for category 1 here (answers will be in multiple choice)
+// category 1 here (answers will be in multiple choice)
 function displayTrivia (){ 
     var trivia=trivias[questionIndex]
    answerChoices.empty()
@@ -74,6 +72,51 @@ function displayTrivia (){
     fourthOptionEl.on("click",checkAnswer)
 }
 
+// category 2 here (answers will be in text box)
+
+function displayJeapordyTrivia (){ 
+  var trivia=category2Trivias[questionIndex]
+  answerChoices.empty()
+  correctAnswer = trivia.answer
+
+  console.log(correctAnswer)
+  
+  // inserting question into element
+  questionCategory1.text(trivia.question)
+  
+  // create input item
+  var firstOptionEl=$("<input>", {id:"answer"});
+  var jeapordyAnswer=$("<div>", {class:"hide"});
+
+  jeapordyAnswer.text(correctAnswer)
+  
+  // then append to ul
+  answerChoices.append(firstOptionEl);
+ firstOptionEl.append(jeapordyAnswer);
+  
+  firstOptionEl.keyup(function(event) {
+    if (event.keyCode === 13){
+      event.preventDefault()
+      localStorage.setItem("user_answer",firstOptionEl.val())
+      checkAnswer2()
+    }
+  })
+}
+
+function getJeapordyAPI(requestURL) {
+  fetch(requestURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) 
+  { 
+    console.log(data)
+    questionIndex=0;
+    category2Trivias=data;
+    displayJeapordyTrivia();
+  })
+}
+
 
 function getTriviaAPI(requestURL) {
     fetch(requestURL)
@@ -97,8 +140,34 @@ function allDoneDisplayed() {
     // grab timeleft and add that number to final score
     $(".final-score").text(timeLeft); 
 }
-
-function checkAnswer() {
+// check function for jeapordy questions
+function checkAnswer2() {
+  var userAnswer=localStorage.getItem('user_answer').toUpperCase()
+  var computerAnswer=(correctAnswer).toUpperCase()
+if (computerAnswer.includes(userAnswer)) {
+  $("#correct").removeClass("hide")
+  setTimeout(function () {
+    $("#correct").addClass("hide")
+  }, 2000)
+}
+else {
+  //subtract 10 seconds from timer
+  timeLeft -= 3;
+  $("#wrong").removeClass("hide")
+  setTimeout(function () {
+    $("#wrong").addClass("hide")
+  }, 2000)
+}
+questionIndex++
+ if (questionIndex<category2Trivias.length)
+ {
+  displayJeapordyTrivia()
+ } else {
+  allDoneDisplayed()
+ }
+}
+// check function for science and education questions 
+  function checkAnswer() {
   if ($(this).text() === correctAnswer) {
     $("#correct").removeClass("hide")
     setTimeout(function () {
@@ -118,13 +187,12 @@ function checkAnswer() {
     displayTrivia()
    } else {
     allDoneDisplayed()
-   }
+   }  
   }
 
 
-// write if & for loop statement for category 2 here (answers will be in text box)
-
-$("#category_1").on("click", function (event) {
+$("#category_1").on("click", function (event) 
+{
     event.preventDefault()
     $(".first-page").attr("class", "hide")
     $(".questions").removeClass("hide")
@@ -132,8 +200,13 @@ $("#category_1").on("click", function (event) {
     getTriviaAPI(scienceTriviaAPI);
 })
 
-// $("#category_2").on("click", function (event) {
-//     getTriviaAPI(randomJeapordyAPI);
-// })
+$("#category_2").on("click", function (event) 
+{
+  event.preventDefault()
+  $(".first-page").attr("class", "hide")
+  $(".questions").removeClass("hide")
+  countdown()
+  getJeapordyAPI(randomJeapordyAPI);
+})
 
 
