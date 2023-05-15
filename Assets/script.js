@@ -86,13 +86,10 @@ function displayJeapordyTrivia (){
   
   // create input item
   var firstOptionEl=$("<input>", {id:"answer"});
-  var jeapordyAnswer=$("<div>", {class:"hide"});
 
-  jeapordyAnswer.text(correctAnswer)
   
   // then append to ul
   answerChoices.append(firstOptionEl);
- firstOptionEl.append(jeapordyAnswer);
   
   firstOptionEl.keyup(function(event) {
     if (event.keyCode === 13){
@@ -175,7 +172,7 @@ questionIndex++
     }, 2000)
   }
   else {
-    //subtract 10 seconds from timer
+    //subtract 3 seconds from timer
     timeLeft -= 3;
     $("#wrong").removeClass("hide")
     setTimeout(function () {
