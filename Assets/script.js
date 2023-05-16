@@ -49,10 +49,10 @@ function displayTrivia (){
     questionCategory1.text(trivia.question)
 
     // create list item
-    var firstOptionEl=$("<button>", {id:"option_1"});
-    var secondOptionEl=$("<button>", {id:"option_2"});
-    var thirdOptionEl=$("<button>", {id:"option_3"});
-    var fourthOptionEl=$("<button>", {id:"option_4"});
+    var firstOptionEl=$("<button>", {class:"science_answers"});
+    var secondOptionEl=$("<button>", {class:"science_answers"});
+    var thirdOptionEl=$("<button>", {class:"science_answers"});
+    var fourthOptionEl=$("<button>", {class:"science_answers"});
 
     // insert text to li 
     firstOptionEl.text(answer);
