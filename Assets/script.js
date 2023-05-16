@@ -49,10 +49,10 @@ function displayTrivia (){
     questionCategory1.text(trivia.question)
 
     // create list item
-    var firstOptionEl=$("<button>", {id:"option_1"});
-    var secondOptionEl=$("<button>", {id:"option_2"});
-    var thirdOptionEl=$("<button>", {id:"option_3"});
-    var fourthOptionEl=$("<button>", {id:"option_4"});
+    var firstOptionEl=$("<button>", {class:"science_answers"});
+    var secondOptionEl=$("<button>", {class:"science_answers"});
+    var thirdOptionEl=$("<button>", {class:"science_answers"});
+    var fourthOptionEl=$("<button>", {class:"science_answers"});
 
     // insert text to li 
     firstOptionEl.text(answer);
@@ -86,13 +86,10 @@ function displayJeapordyTrivia (){
   
   // create input item
   var firstOptionEl=$("<input>", {id:"answer"});
-  var jeapordyAnswer=$("<div>", {class:"hide"});
 
-  jeapordyAnswer.text(correctAnswer)
   
   // then append to ul
   answerChoices.append(firstOptionEl);
- firstOptionEl.append(jeapordyAnswer);
   
   firstOptionEl.keyup(function(event) {
     if (event.keyCode === 13){
@@ -175,7 +172,7 @@ questionIndex++
     }, 2000)
   }
   else {
-    //subtract 10 seconds from timer
+    //subtract 3 seconds from timer
     timeLeft -= 3;
     $("#wrong").removeClass("hide")
     setTimeout(function () {
