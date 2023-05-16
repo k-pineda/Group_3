@@ -135,7 +135,7 @@ function allDoneDisplayed() {
   $(".third-page").removeClass("hide")
   questionsContainer.addClass("hide")
     // grab timeleft and add that number to final score
-    $(".final-score").text(timeLeft); 
+    $(".final-score").text("Your Final Score:" + " "+ timeLeft); 
 }
 // check function for jeapordy questions
 function checkAnswer2() {
