@@ -1,5 +1,5 @@
 // api variables
-var scienceTriviaAPI = `https://opentdb.com/api.php?amount=5&category=17&difficulty=easy&type=multiple`
+var scienceTriviaAPI = `https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple`
 var randomJeapordyAPI=`http://jservice.io/api/random?count=5`
 
 var answer;
