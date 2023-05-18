@@ -1,23 +1,224 @@
+/* Apply Materialize styles to the body element */
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color:whitesmoke;
+    color: #ffffff;
+    max-width: 100%;
   }
-
-main {
+  
+  html {
+    border: 10px solid #fb8c00;
+    
+  }
+  
+  
+  main {
     flex: 1 0 auto;
   }
-
-.time {
-    text-align: right;
-}
-
-.welcome-time {
+  
+  
+  .welcome-time {
     font-weight: bold;
     padding: 20px;
-    background-color: rgb(231, 229, 229);
-}
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+  } 
 
-button:hover {
-    background-color: yellow;
+  
+  button:hover {
+    background-color: #ff9800;
+  }
+  
+  
+  .form-label {
+    color: #ffffff;
+    font-size: 18px;
+  }
+
+  #answer{
+    background-color:#deddcc;
+  }
+  
+  
+  .btn-large {
+    font-size: 18px;
+    padding: 20px 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: #ff9800;
+    border-radius: 50px;
+    box-shadow: 0px 5px 20px rgba(34, 33, 31, 0.5);
+    transition: transform 0.2s ease-in-out;
+    color: #ffffff;
+    text-align: center;
+    
+  }
+  
+  #category_1{
+    padding-top: 0.15cm;
+    padding-bottom: 15%;
+    }
+  
+  #category_2{
+    padding-top: 0.15cm;
+    padding-bottom: 15%;
+    }
+
+    .container.first-page .col.s12.m6 {
+        color: #1d1b19;
+         font-size: 24px;
+        font-weight: bold;
+       text-align: center;
+         }
+         
+       .container.first-page .col.s12.m6 p {      
+         font-size: 18px;
+         font-weight: normal;
+         }
+         
+       .container.first-page .col.s12.m6 button {
+         background-color: #ff9800;
+         color:#FCF9BE ;
+         font-size: 18px;
+         font-weight: bold;
+         margin-top: 20px;
+         padding: 10px 20px;
+         text-transform: uppercase;
+         transition: background-color 0.3s ease;
+         border-radius: 5px;
+         }
+         
+         .container.first-page .col.s12.m6 button:hover {
+           background-color: #f57c00;
+         }
+
+  #second-page.container.questions{
+    height: 350px;
+    width: 650px;
+  }
+
+  #third-page{
+    width: 650px;
+  }
+  
+  
+  .btn-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 30px rgba(41, 39, 36, 0.5);
+  }
+
+  
+  .header {
+    font-size: 56px;
+    margin-bottom: 40px;
+    text-align: center;
+    text-shadow: 3px 3px #ff9800;
+  }
+  
+  
+  .question-title {
+    font-size: 36px;
+    margin-bottom: 70px;
+    text-align: center;
+    text-shadow: 2px 2px #ff9800;
+    color: #ff9800;
+  }
+  
+  
+  .answer-choices {
+    display: flex;
+    border-style: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
+    
+  }
+
+
+  .collection-item {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow: 0px 5px 20px rgba(255, 152, 0, 0.2);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+  }
+  
+  .collection-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 30px rgba(255, 152, 0, 0.2);
+  }
+
+
+  .answer-choices{
+    font-size: large;
+    }
+
+  .science_answers{
+    margin-top: 0.50cm;
+    font-size: x-large;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    background-color: #8843F2;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+  }
+
+  .science_answers:hover {
+    background-color: #c1bebe;
+  }
+
+  .welcome-time{
+   margin-top: 50px;
+  }
+   
+  .welcome{
+    font-size: medium;
+    
+  }
+
+   .score{
+    color: black;
+    font-size: 48px;
+    
+  }
+  
+  
+  #correct {
+    color: #00ff00;
+    float: left;
+    position: fixed;
+    top: 55%;
+    left: 15%;
+    transform: translateY(50%);
+  }
+  
+  
+  #wrong {
+    color: #ff0000;
+    position: fixed;
+    top: 65%;
+    right: 15%;
+    transform: translateY(-50%);
+  }
+  
+  
+  footer {
+    padding: 0%;
+    
   }
