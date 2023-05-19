@@ -5,5 +5,5 @@ The group project is structured with assets folder, index.html, README.md , and 
 
 Live URL via github pages: 
 
-Screenshot of Science Nature and Jeopardy Trivia Game:
-
+Screenshot of Science Nature and Jeopardy Trivia Quiz:
+![Screenshot of Trivia Quiz](./Trivia-Quiz.png)
