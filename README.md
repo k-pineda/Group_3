@@ -3,7 +3,7 @@ In this group project, We are building a Science , Nature and Jeopardy trivia ga
 
 The group project is structured with assets folder, index.html, README.md , and script.js. Within the assets folder, there is also a style.css folder that contains CSS. 
 
-Live URL via github pages: 
+Live URL via github pages: https://k-pineda.github.io/Group_3/
 
 Screenshot of Science Nature and Jeopardy Trivia Quiz:
 ![Screenshot of Trivia Quiz](./Trivia-Quiz.png)
